@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body text-base min-h-screen bg-gray-200 pb-20;
+  }
+}
+
+@layer components {}

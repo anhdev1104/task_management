@@ -1,0 +1,30 @@
+<div class="px-5 mt-10">
+  <div class="bg-white rounded-md overflow-hidden">
+    <div class="text-center font-bold text-lg uppercase py-3 bg-blue-400 text-white">Thành viên của team</div>
+    <div>
+      <div
+        class="bg-gray-100 flex gap-5 justify-between items-center p-5 border-b border-[#dbdbdb] hover:bg-opacity-40 transition-al cursor-pointer"
+        (click)="toggleListMembers()">
+        <span>Đà Nẵng</span>
+        <div *ngIf="isListMembers; else elseIconDownMembers"><i class="fa-solid fa-caret-down"></i></div>
+        <ng-template #elseIconDownMembers>
+          <i class="fa-solid fa-caret-right"></i>
+        </ng-template>
+      </div>
+      <div [ngClass]="isListMembers ? 'block' : 'hidden'">
+        <div class="m-5 border border-[#dbdbdb] rounded-md overflow-hidden">
+          <div class="py-3 bg-blue-400 text-white pl-5">#1 Anh dev</div>
+          <div class="pl-5 py-3">Avaliable</div>
+        </div>
+        <div class="m-5 border border-[#dbdbdb] rounded-md overflow-hidden">
+          <div class="py-3 bg-blue-400 text-white pl-5">#2 Anh Bùi</div>
+          <div class="pl-5 py-3">Avaliable</div>
+        </div>
+        <div class="m-5 border border-[#dbdbdb] rounded-md overflow-hidden">
+          <div class="py-3 bg-blue-400 text-white pl-5">#3 Anh coder</div>
+          <div class="pl-5 py-3">Busy</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

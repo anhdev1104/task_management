@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { HeaderComponent } from './layouts/header/header.component';
+import { NavigateBarComponent } from './components/navigate-bar/navigate-bar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, DashboardComponent],
+  imports: [RouterOutlet, HeaderComponent, NavigateBarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
-  title = 'task_management';
-}
+export class AppComponent {}

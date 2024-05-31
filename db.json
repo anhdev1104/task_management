@@ -1,0 +1,34 @@
+{
+  "teams": [
+    {
+      "name": "Đà Nẵng",
+      "members": [
+        {
+          "name": "Anh dev",
+          "status": "Available"
+        },
+        {
+          "name": "Anh Bùi",
+          "status": "Available"
+        },
+        {
+          "name": "Anh coder",
+          "status": "Busy"
+        }
+      ]
+    },
+    {
+      "name": "Hà Nội",
+      "members": [
+        {
+          "name": "Chị thiết kế",
+          "status": "Available"
+        },
+        {
+          "name": "Chị QA",
+          "status": "Busy"
+        }
+      ]
+    }
+  ]
+}

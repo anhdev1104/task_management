@@ -1,0 +1,48 @@
+<div class="max-w-4xl mx-auto bg-white p-10 mt-10 shadow-md rounded-lg">
+  <h1 class="text-3xl font-bold mb-6">Tạo Task</h1>
+  <form>
+    <div class="mb-4">
+      <label class="block text-sm font-semibold mb-2" for="task-name">Tên Task:</label>
+      <input class="w-full border rounded-lg px-3 py-2" type="text" id="task-name" placeholder="Task Name">
+    </div>
+    <div class="mb-4">
+      <label class="block text-sm font-semibold mb-2" for="description">Mô tả:</label>
+      <textarea class="w-full border rounded-lg px-3 py-2" id="description" placeholder="Description"
+        rows="4"></textarea>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+      <div>
+        <label class="block text-sm font-semibold mb-2" for="project">Dự án:</label>
+        <select class="w-full border rounded-lg px-3 py-2" id="project">
+          <option>Please Select</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-semibold mb-2" for="priority">Mức độ ưu tiên:</label>
+        <select class="w-full border rounded-lg px-3 py-2" id="priority">
+          <option value="low">Low</option>
+          <option value="normal" selected>Normal</option>
+          <option value="highest">Highest</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-semibold mb-2" for="assigned-to">Phân công:</label>
+        <select class="w-full border rounded-lg px-3 py-2" id="assigned-to">
+          <option>Please Select</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-semibold mb-2" for="status">Trạng thái:</label>
+        <select class="w-full border rounded-lg px-3 py-2" id="status">
+          <option>Holding</option>
+        </select>
+      </div>
+    </div>
+    <div class="flex justify-between">
+      <button class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600" type="submit">Create
+        Task</button>
+      <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600" type="button">Back to
+        Tasks</button>
+    </div>
+  </form>
+</div>

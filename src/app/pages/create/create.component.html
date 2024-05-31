@@ -1,0 +1,45 @@
+<div class="p-6">
+  <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
+    <h1 class="text-2xl font-bold mb-6">Tạo Dự Án Mới</h1>
+    <form action="#" method="POST">
+      <div class="mb-4">
+        <label for="projectName" class="block text-gray-700 font-bold mb-2">Tên Dự Án</label>
+        <input type="text" id="projectName" name="projectName"
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required>
+      </div>
+      <div class="mb-4">
+        <label for="description" class="block text-gray-700 font-bold mb-2">Mô Tả</label>
+        <textarea id="description" name="description" rows="4"
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required></textarea>
+      </div>
+      <div class="mb-4">
+        <label for="startDate" class="block text-gray-700 font-bold mb-2">Ngày Bắt Đầu</label>
+        <input type="date" id="startDate" name="startDate"
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required>
+      </div>
+      <div class="mb-4">
+        <label for="teamSize" class="block text-gray-700 font-bold mb-2">Team size</label>
+        <input type="text" id="teamSize" name="teamSize"
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required>
+      </div>
+      <div class="mb-4">
+        <label for="status" class="block text-gray-700 font-bold mb-2">Trạng Thái</label>
+        <select id="status" name="status"
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="planning">Đang Lên Kế Hoạch</option>
+          <option value="inProgress">Đang Tiến Hành</option>
+          <option value="completed">Hoàn Thành</option>
+        </select>
+      </div>
+      <div class="mb-6">
+        <button type="submit"
+          class="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Tạo
+          Dự Án</button>
+      </div>
+    </form>
+  </div>
+</div>

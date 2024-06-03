@@ -1,0 +1,8 @@
+.description::-webkit-scrollbar {
+  width: 5px;
+  background: #efefef;
+}
+
+.description::-webkit-scrollbar-thumb {
+  background: #a5a5a5;
+}

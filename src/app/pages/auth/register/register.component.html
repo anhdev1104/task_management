@@ -1,7 +1,13 @@
 <div class="flex items-center justify-center mt-[50px]">
   <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-xl">
-    <h2 class="text-2xl font-bold mb-6 text-center">Đăng nhập tài khoản</h2>
+    <h2 class="text-2xl font-bold mb-6 text-center">Đăng ký tài khoản</h2>
     <form>
+      <div class="mb-4">
+        <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Username</label>
+        <input type="text" id="username" name="username"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          placeholder="Enter your username">
+      </div>
       <div class="mb-4">
         <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
         <input type="email" id="email" name="email"
@@ -14,11 +20,17 @@
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           placeholder="Enter your password">
       </div>
+      <div class="mb-4">
+        <label for="confirm_password" class="block text-gray-700 text-sm font-bold mb-2">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          placeholder="Confirm your password">
+      </div>
       <div class="flex items-center justify-between mt-5">
         <button type="submit"
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Đăng
-          nhập</button>
-        <a routerLink="/register" class="underline text-sm text-blue-400">Tạo tài khoản !</a>
+          ký</button>
+        <a routerLink="" class="underline text-sm text-blue-400">Đã có tài khoản !</a>
       </div>
     </form>
   </div>

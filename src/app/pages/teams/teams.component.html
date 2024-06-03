@@ -1,0 +1,28 @@
+<div class="mt-[70px] flex justify-center gap-10 px-10">
+  <div class="w-1/3 bg-white p-5 rounded-md min-h-96">
+    <h2 class="text-xl font-semibold text-center mb-5 capitalize">Tạo khu vực team</h2>
+    <form [formGroup]="teams" (ngSubmit)="handleAddTeam()">
+      <div class="">
+        <label for="team" class="mb-2 inline-block font-medium">Khu vực team</label>
+        <input type="text" formControlName="team" name="team" id="team" placeholder="Nhập khu vực team dự án"
+          class="block border border-[#dbdbdb] w-full py-2 px-5 rounded-md outline-none">
+      </div>
+      <button type="submit" class="py-2 px-6 bg-blue-500 text-white rounded mt-5 disabled:bg-blue-300"
+        [disabled]="!teams.valid">Đăng ký
+        team</button>
+    </form>
+  </div>
+  <div class="w-1/3 bg-white p-5 rounded-md min-h-96">
+    <h2 class="text-xl font-semibold text-center mb-5 capitalize">Danh sách các teams</h2>
+    <table>
+      <tr>
+        <th>Khu vực</th>
+      </tr>
+      @for (item of teamsData; track item._id) {
+      <tr>
+        <td>{{item.name}}</td>
+      </tr>
+      }
+    </table>
+  </div>
+</div>

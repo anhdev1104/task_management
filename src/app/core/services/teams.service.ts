@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import ITeams from '../interface/Teams';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TeamService {
-  private apiUrl = 'http://localhost:8080/api/v1/teams';
   constructor(private http: HttpClient) {}
 
-  getTeams(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  getTeams(): Observable<ITeams[]> {
+    return this.http.get<ITeams[]>('/teams');
+  }
+
+  addTeam(data: ITeams): Observable<ITeams> {
+    return this.http.post<ITeams>('/teams', data);
   }
 }

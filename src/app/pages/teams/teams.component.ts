@@ -49,7 +49,7 @@ export class TeamsComponent implements OnInit {
         this.teams.reset();
       },
       (error) => {
-        console.error('Error posting data', error);
+        console.log('Error posting data', error);
         this.showError();
       }
     );

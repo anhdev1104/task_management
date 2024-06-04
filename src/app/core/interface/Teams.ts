@@ -1,7 +1,9 @@
+import { IAccount } from './Account';
+
 interface ITeams {
   _id?: string;
   name: string;
-  members?: any;
+  members?: IAccount[];
 }
 
 export default ITeams;

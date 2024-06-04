@@ -1,30 +1,36 @@
+<p-toast></p-toast>
 <div class="flex items-center justify-center mt-[50px]">
   <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-xl">
     <h2 class="text-2xl font-bold mb-6 text-center">Đăng ký tài khoản</h2>
-    <form>
+    <form [formGroup]="accounts" (ngSubmit)="handleRegister()" autocomplete="off">
       <div class="mb-4">
-        <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Username</label>
-        <input type="text" id="username" name="username"
+        <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Full name</label>
+        <input type="text" id="username" formControlName="username" name="username"
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           placeholder="Enter your username">
+        @if ( accounts.get('username')?.dirty && accounts.get('username')?.hasError('required')) {
+        <span class="text-xs pl-2 inline-block mt-2 text-red-500">Vui lòng nhập vào tên của bạn !</span>
+        }
       </div>
       <div class="mb-4">
         <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
-        <input type="email" id="email" name="email"
+        <input type="email" id="email" formControlName="email" name="email"
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           placeholder="Enter your email">
+        @if ( accounts.get('email')?.dirty && accounts.get('email')?.hasError('required')) {
+        <span class="text-xs pl-2 inline-block mt-2 text-red-500">Vui lòng nhập vào địa chỉ email !</span>
+        } @else if ( accounts.get('email')?.dirty && accounts.get('email')?.hasError('email')) {
+        <span class="text-xs pl-2 inline-block mt-2 text-red-500">Địa chỉ email chưa đúng định dạng !</span>
+        }
       </div>
       <div class="mb-4">
         <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
-        <input type="password" id="password" name="password"
+        <input type="password" id="password" formControlName="password" name="password"
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           placeholder="Enter your password">
-      </div>
-      <div class="mb-4">
-        <label for="confirm_password" class="block text-gray-700 text-sm font-bold mb-2">Confirm Password</label>
-        <input type="password" id="confirm_password" name="confirm_password"
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          placeholder="Confirm your password">
+        @if ( accounts.get('password')?.dirty && accounts.get('password')?.hasError('required')) {
+        <span class="text-xs pl-2 inline-block mt-2 text-red-500">Mật khẩu không được để trống !</span>
+        }
       </div>
       <div class="flex items-center justify-between mt-5">
         <button type="submit"

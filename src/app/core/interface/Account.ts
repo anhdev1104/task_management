@@ -2,7 +2,7 @@ import ITeams from './Teams';
 
 export interface IAccount {
   _id?: string;
-  username: string;
+  username?: string;
   email: string;
   password: string;
   avatar?: string;

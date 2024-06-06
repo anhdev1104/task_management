@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { AccountService } from '../../../core/services/account.service';
@@ -19,21 +19,20 @@ import { AccountService } from '../../../core/services/account.service';
   styleUrl: './register.component.css',
   providers: [MessageService],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
   accounts = new FormGroup({
     username: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
   });
 
-  accountData: IAccount[] = [];
+  accountData!: IAccount;
 
   constructor(
     private messageService: MessageService,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private router: Router
   ) {}
-
-  ngOnInit(): void {}
 
   handleRegister() {
     if (!this.accounts.valid) {
@@ -52,10 +51,10 @@ export class RegisterComponent implements OnInit {
 
     this.accountService.addAccount(postData).subscribe(
       (data: IAccount) => {
-        this.accountData.push(data);
+        this.accountData = data;
         this.showSuccess();
         this.accounts.reset();
-        console.log(this.accountData);
+        setTimeout(() => this.router.navigate(['/']), 2500);
       },
       (err) => {
         console.log('Error posting data', err);
@@ -68,7 +67,7 @@ export class RegisterComponent implements OnInit {
     this.messageService.add({
       severity: 'success',
       summary: 'Success',
-      detail: 'Tạo tài khoản thành công.',
+      detail: 'Tạo tài khoản thành công. Vui lòng đăng nhập để xác thực !',
     });
   }
 

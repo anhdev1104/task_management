@@ -9,7 +9,15 @@ import { Observable } from 'rxjs';
 export class AccountService {
   constructor(private http: HttpClient) {}
 
+  getAccounts(): Observable<IAccount[]> {
+    return this.http.get<IAccount[]>('account');
+  }
+
   addAccount(data: IAccount): Observable<IAccount> {
-    return this.http.post<IAccount>('/account', data);
+    return this.http.post<IAccount>('account', data);
+  }
+
+  loginAccount(data: IAccount): Observable<IAccount> {
+    return this.http.post<IAccount>('login', data);
   }
 }

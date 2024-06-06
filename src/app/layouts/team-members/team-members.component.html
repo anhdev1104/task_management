@@ -2,8 +2,8 @@
 
   <div class="bg-white rounded-md overflow-hidden shadow">
     <div class="text-center font-bold text-lg uppercase py-3 bg-blue-400 text-white">Thành viên của teams</div>
-    <div *ngIf="teams.length > 0">
-      <div *ngFor="let team of teams; let i = index">
+    <div *ngIf="teamsData.length > 0">
+      <div *ngFor="let team of teamsData; let i = index">
         <div
           class="bg-gray-100 flex gap-5 justify-between items-center p-5 border-b border-[#dbdbdb] hover:bg-opacity-40 transition-all cursor-pointer"
           (click)="toggleListMembers(i)">
@@ -15,7 +15,7 @@
         </div>
         <div [ngClass]="team.isListMembersVisible ? 'block' : 'hidden'">
           <div *ngFor="let member of team.members" class="m-5 border border-[#dbdbdb] rounded-md overflow-hidden">
-            <div class="py-3 bg-blue-400 text-white pl-5">{{ member.name }}</div>
+            <div class="py-3 bg-blue-400 text-white pl-5">{{ member.username }}</div>
             <div class="pl-5 py-3">{{ member.status }}</div>
           </div>
         </div>

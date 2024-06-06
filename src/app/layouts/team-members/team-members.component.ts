@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule, NgClass, NgIf } from '@angular/common';
+import { TeamService } from '../../core/services/teams.service';
+import ITeams from '../../core/interface/Teams';
 
 interface TeamMember {
   name: string;
@@ -21,25 +23,33 @@ interface Team {
   styleUrls: ['./team-members.component.css'],
 })
 export class TeamMembersComponent implements OnInit {
-  teams: Team[] = [];
+  teamsData: ITeams[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private teamService: TeamService) {}
 
   ngOnInit() {
-    this.fetchTeams();
+    this.teamService.getTeams().subscribe(
+      (data: ITeams[]) => {
+        this.teamsData = data.map((team) => ({
+          ...team,
+          isListMembersVisible: false, // Initialize visibility to false
+        }));
+      },
+      (err) => console.log(err)
+    );
   }
 
-  fetchTeams() {
-    this.http.get<Team[]>('http://localhost:3000/teams').subscribe((data) => {
-      this.teams = data.map((team) => ({
-        ...team,
-        isListMembersVisible: false, // Initialize visibility to false
-      }));
-    });
-  }
+  // fetchTeams() {
+  //   this.http.get<Team[]>('http://localhost:3000/teams').subscribe((data) => {
+  //     this.teams = data.map((team) => ({
+  //       ...team,
+  //       isListMembersVisible: false, // Initialize visibility to false
+  //     }));
+  //   });
+  // }
 
   toggleListMembers(index: number) {
-    this.teams[index].isListMembersVisible =
-      !this.teams[index].isListMembersVisible;
+    this.teamsData[index].isListMembersVisible =
+      !this.teamsData[index].isListMembersVisible;
   }
 }

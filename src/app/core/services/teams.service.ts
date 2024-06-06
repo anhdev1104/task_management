@@ -10,10 +10,10 @@ export class TeamService {
   constructor(private http: HttpClient) {}
 
   getTeams(): Observable<ITeams[]> {
-    return this.http.get<ITeams[]>('/teams');
+    return this.http.get<ITeams[]>('teams');
   }
 
   addTeam(data: ITeams): Observable<ITeams> {
-    return this.http.post<ITeams>('/teams', data);
+    return this.http.post<ITeams>('teams', data);
   }
 }

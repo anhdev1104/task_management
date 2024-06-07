@@ -16,10 +16,13 @@ export class BaseUrlInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     // Nếu URL không bắt đầu bằng 'http', thêm baseUrl vào URL
+    let apiReq = req;
     if (!req.url.startsWith('http')) {
-      const apiReq = req.clone({ url: `${this.baseUrl}/${req.url}` });
+      apiReq = req.clone({ url: `${this.baseUrl}/${req.url}` });
       return next.handle(apiReq);
     }
+    apiReq = apiReq.clone({ withCredentials: true });
+
     return next.handle(req);
   }
 }

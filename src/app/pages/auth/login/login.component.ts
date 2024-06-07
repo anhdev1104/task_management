@@ -10,6 +10,7 @@ import { ToastModule } from 'primeng/toast';
 import { IAccount } from '../../../core/interface/Account';
 import { AccountService } from '../../../core/services/account.service';
 import { MessageService } from 'primeng/api';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -30,7 +31,8 @@ export class LoginComponent {
   constructor(
     private messageService: MessageService,
     private accountService: AccountService,
-    private router: Router
+    private router: Router,
+    private cookieService: CookieService
   ) {}
 
   handleLogin() {
@@ -49,8 +51,11 @@ export class LoginComponent {
 
     this.accountService.loginAccount(loginData).subscribe(
       (data: IAccount) => {
+        // Lưu accessToken vào cookie
+        this.cookieService.set('accessToken', data.accessToken, 1);
+        // Lưu refreshToken vào cookie
+        this.cookieService.set('refreshToken', data.refreshToken, 30);
         this.accountData = data;
-        console.log(this.accountData);
         this.accounts.reset();
         this.router.navigate(['/admin/dashboard']);
         this.showSuccess();

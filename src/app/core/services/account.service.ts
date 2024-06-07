@@ -20,4 +20,8 @@ export class AccountService {
   loginAccount(data: IAccount): Observable<IAccount> {
     return this.http.post<IAccount>('login', data);
   }
+
+  profileAccount(): Observable<IAccount> {
+    return this.http.get<IAccount>('profile');
+  }
 }

@@ -9,4 +9,6 @@ export interface IAccount {
   role?: string;
   status?: string;
   team?: ITeams;
+  accessToken?: any;
+  refreshToken?: any;
 }

@@ -21,6 +21,10 @@ export class AccountService {
     return this.http.post<IAccount>('login', data);
   }
 
+  refreshToken(): Observable<any> {
+    return this.http.get<any>('refresh');
+  }
+
   profileAccount(): Observable<IAccount> {
     return this.http.get<IAccount>('profile');
   }

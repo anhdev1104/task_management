@@ -52,9 +52,8 @@ export class LoginComponent {
     this.accountService.loginAccount(loginData).subscribe(
       (data: IAccount) => {
         // Lưu accessToken vào cookie
-        this.cookieService.set('accessToken', data.accessToken, 1);
-        // Lưu refreshToken vào cookie
-        this.cookieService.set('refreshToken', data.refreshToken, 30);
+        this.cookieService.set('accessToken', data.accessToken);
+
         this.accountData = data;
         this.accounts.reset();
         this.router.navigate(['/admin/dashboard']);

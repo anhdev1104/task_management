@@ -18,11 +18,12 @@ export class BaseUrlInterceptor implements HttpInterceptor {
     // Nếu URL không bắt đầu bằng 'http', thêm baseUrl vào URL
     let apiReq = req;
     if (!req.url.startsWith('http')) {
-      apiReq = req.clone({ url: `${this.baseUrl}/${req.url}` });
-      return next.handle(apiReq);
+      apiReq = req.clone({
+        url: `${this.baseUrl}/${req.url}`,
+        withCredentials: true,
+      });
     }
-    apiReq = apiReq.clone({ withCredentials: true });
 
-    return next.handle(req);
+    return next.handle(apiReq);
   }
 }

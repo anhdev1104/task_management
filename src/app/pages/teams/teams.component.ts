@@ -15,7 +15,7 @@ import { MessageService } from 'primeng/api';
   standalone: true,
   imports: [ReactiveFormsModule, ToastModule],
   templateUrl: './teams.component.html',
-  styleUrl: './teams.component.css',
+  styleUrls: ['./teams.component.css'],
   providers: [MessageService],
 })
 export class TeamsComponent implements OnInit {
@@ -55,11 +55,31 @@ export class TeamsComponent implements OnInit {
     );
   }
 
+  handleDeleteTeam(id: string | undefined) {
+    const isDeleteTeam = confirm(
+      'Bạn có chắc muốn xóa team này khỏi dự án không?'
+    );
+    if (!isDeleteTeam) return;
+
+    if (id) {
+      this.teamService.deleteTeam(id).subscribe(
+        () => {
+          this.teamsData = this.teamsData.filter((team) => team._id !== id);
+          this.showSuccess();
+        },
+        (error) => {
+          console.log('Error deleting data', error);
+          this.showError();
+        }
+      );
+    }
+  }
+
   showSuccess() {
     this.messageService.add({
       severity: 'success',
       summary: 'Success',
-      detail: 'Đã thêm thành công team khu vực.',
+      detail: 'Thao tác thành công.',
     });
   }
 
@@ -67,7 +87,7 @@ export class TeamsComponent implements OnInit {
     this.messageService.add({
       severity: 'error',
       summary: 'Error',
-      detail: 'Thêm thất bại.',
+      detail: 'Thao tác thất bại.',
     });
   }
 }

@@ -16,4 +16,8 @@ export class TeamService {
   addTeam(data: ITeams): Observable<ITeams> {
     return this.http.post<ITeams>('teams', data);
   }
+
+  deleteTeam(id: string): Observable<ITeams> {
+    return this.http.delete<ITeams>(`teams/${id}`);
+  }
 }

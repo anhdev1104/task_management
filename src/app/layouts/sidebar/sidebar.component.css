@@ -1,0 +1,15 @@
+.avatar::after {
+  content: '';
+  opacity: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  transition: all 0.3s linear;
+}
+
+.avatar:hover:after {
+  opacity: 1;
+}

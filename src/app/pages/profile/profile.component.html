@@ -1,0 +1,101 @@
+<p-toast></p-toast>
+<div class="flex">
+  <div class="px-5 mt-10 w-1/3">
+    <div class="bg-white rounded-md overflow-hidden shadow">
+      <div class="text-center font-bold text-lg uppercase py-3 bg-blue-400 text-white">Thông tin cá nhân</div>
+      <div class="w-[150px] h-[150px] rounded-full overflow-hidden mx-auto my-2">
+        <img src="{{profileData.avatar}}" alt="Avatar" id="avatar">
+      </div>
+      <h2 class="text-center font-medium uppercase">{{profileData.username}}</h2>
+      <div class="mt-5">
+        <div class="my-5 px-10 flex items-center gap-5">
+          <b>Email: </b>
+          <span>{{profileData.email}}</span>
+        </div>
+        <div class="my-5 px-10 flex items-center gap-5">
+          <b>Thuộc team khu vực: </b>
+          <span>{{profileData.team?.name || 'Chưa cập nhập'}}</span>
+        </div>
+        <div class="my-5 px-10 flex items-center gap-5">
+          <b>Chức vụ: </b>
+          <span>{{profileData.role === 'employee' ? 'Nhân viên' : 'Quản lý'}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex-1">
+    <div class="mt-10 px-5">
+      <div class="bg-white rounded-md overflow-hidden shadow">
+        <div class="text-center font-bold text-lg uppercase py-3 bg-blue-400 text-white">Cập nhập thông tin cá nhân
+        </div>
+        <div class="my-5 px-5">
+          <form [formGroup]="profileUpdate" (ngSubmit)="handleUpdateProfile()">
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                Full name
+              </label>
+              <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="username" formControlName="username" type="text" placeholder="Full name">
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                Email
+              </label>
+              <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="email" formControlName="email" type="email" placeholder="Email">
+              @if ( profileUpdate.get('email')?.dirty && profileUpdate.get('email')?.hasError('required')) {
+              <span class="text-xs pl-2 inline-block mt-2 text-red-500">Vui lòng nhập vào địa chỉ email !</span>
+              } @else if ( profileUpdate.get('email')?.dirty && profileUpdate.get('email')?.hasError('email')) {
+              <span class="text-xs pl-2 inline-block mt-2 text-red-500">Địa chỉ email chưa đúng định dạng !</span>
+              }
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="team">
+                Thuộc team khu vực
+              </label>
+              <select
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="team" formControlName="team">
+                <!-- <option value="" class="capitalize">--- Chọn team khu vực ---</option> -->
+                @for (team of teamsData; track team._id) {
+                <option value="{{team._id}}" [selected]="profileData._id === team._id" class="capitalize">{{team?.name}}
+                </option>
+                }
+              </select>
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="role">
+                Chức vụ
+              </label>
+              <select
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="role" formControlName="role">
+                <option value="">--- Chọn chức vụ ---</option>
+                <option [value]="'admin'">Quản lý</option>
+                <option [value]="'employee'">Nhân viên</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="avatar">
+                Avatar
+              </label>
+              <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                formControlName="avatar" id="avatar" type="text" placeholder="Nhập url ảnh">
+            </div>
+            <div class="flex items-center justify-between">
+              <button
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="submit">
+                Cập nhật
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

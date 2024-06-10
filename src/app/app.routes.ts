@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { TeamsComponent } from './pages/teams/teams.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 export const routes: Routes = [
   {
@@ -38,6 +39,11 @@ export const routes: Routes = [
         path: 'teams',
         component: TeamsComponent,
         title: 'Teams khu vực',
+      },
+      {
+        path: 'profile/:id',
+        component: ProfileComponent,
+        title: 'Hồ sơ cá nhân',
       },
     ],
   },

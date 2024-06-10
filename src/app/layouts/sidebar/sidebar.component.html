@@ -1,7 +1,12 @@
 <div class="px-5 mt-10">
   <div class="bg-white rounded-md overflow-hidden shadow">
     <div class="text-center font-bold text-lg uppercase py-3 bg-blue-400 text-white">Trưởng nhóm</div>
-    <div class="w-[150px] h-[150px] rounded-full overflow-hidden mx-auto my-2">
+    <div
+      class="w-[150px] h-[150px] rounded-full overflow-hidden mx-auto my-2 hover:cursor-pointer relative group avatar">
+      <a routerLink="/admin/profile/{{profile?._id}}"
+        class="absolute hidden group-hover:block z-10 top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 font-medium text-white">Sửa
+        hồ
+        sơ</a>
       <img src="{{profile?.avatar}}" alt="">
     </div>
     <h2 class="text-center font-medium uppercase">{{profile?.username}}</h2>

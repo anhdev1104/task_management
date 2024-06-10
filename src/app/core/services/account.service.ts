@@ -17,6 +17,14 @@ export class AccountService {
     return this.http.post<IAccount>('account', data);
   }
 
+  updateAccount(data: IAccount, id: string): Observable<IAccount> {
+    return this.http.put<IAccount>(`account/${id}`, data);
+  }
+
+  updateAccountWithAvatar(data: FormData, id: string): Observable<IAccount> {
+    return this.http.put<IAccount>(`account/${id}`, data);
+  }
+
   loginAccount(data: IAccount): Observable<IAccount> {
     return this.http.post<IAccount>('login', data);
   }

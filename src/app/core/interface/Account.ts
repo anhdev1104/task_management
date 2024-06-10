@@ -4,7 +4,7 @@ export interface IAccount {
   _id?: string;
   username?: string;
   email: string;
-  password: string;
+  password?: string;
   avatar?: string;
   role?: string;
   status?: string;

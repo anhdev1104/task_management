@@ -13,7 +13,6 @@ import { AccountService } from '../../core/services/account.service';
   styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent implements OnInit {
-  // @Output() profileDataEvent = new EventEmitter<IAccount>();
   profileData!: IAccount;
   constructor(private profileService: AccountService) {}
 
@@ -21,7 +20,6 @@ export class DashboardComponent implements OnInit {
     this.profileService.profileAccount().subscribe(
       (data: IAccount) => {
         this.profileData = data;
-        // this.profileDataEvent.emit(this.profileData);
       },
       (err) => {
         console.log('Error posting data', err);

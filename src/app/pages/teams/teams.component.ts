@@ -79,7 +79,7 @@ export class TeamsComponent implements OnInit {
     this.messageService.add({
       severity: 'success',
       summary: 'Success',
-      detail: 'Thao tác thành công.',
+      detail: 'Team khu vực đã xoá thành công.',
     });
   }
 

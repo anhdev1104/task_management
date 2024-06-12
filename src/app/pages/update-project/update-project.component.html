@@ -1,20 +1,22 @@
 <p-toast></p-toast>
 <div class="p-6">
   <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
-    <h1 class="text-2xl font-bold mb-6">Tạo Dự Án Mới</h1>
-    <form [formGroup]="project" (ngSubmit)="handleCreateProject()">
+    <h1 class="text-2xl font-bold mb-6">Cập Nhật Dự Án</h1>
+    <form [formGroup]="projectForm" (ngSubmit)="handleUpdateProject()">
       <div class="mb-4">
         <label for="projectName" class="block text-gray-700 font-bold mb-2">Tên Dự Án</label>
         <input type="text" id="projectName" formControlName="name" name="projectName"
           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           required>
-        @if ( project.get('name')?.dirty && project.get('name')?.hasError('required')) {
-        <span class="text-xs pl-2 inline-block mt-2 text-red-500">Vui lòng nhập tên dự án !</span>
+        @if (projectForm.get('name')?.dirty && projectForm.get('name')?.hasError('required')) {
+        <div class="text-xs pl-2 inline-block mt-2 text-red-500">
+          Vui lòng nhập tên dự án!
+        </div>
         }
       </div>
       <div class="mb-4">
         <label for="description" class="block text-gray-700 font-bold mb-2">Mô Tả</label>
-        <textarea id="description" formControlName="description" name=" description" rows="4"
+        <textarea id="description" formControlName="description" name="description" rows="4"
           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           required></textarea>
       </div>
@@ -34,7 +36,7 @@
         <label for="status" class="block text-gray-700 font-bold mb-2">Trạng Thái</label>
         <select id="status" formControlName="status" name="status"
           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-          <option [defaultSelected]="true" value="planning">-- Chọn trạng thái --</option>
+          <option [defaultSelected]="true" value="">-- Chọn trạng thái --</option>
           <option value="Đang Lên Kế Hoạch">Đang Lên Kế Hoạch</option>
           <option value="Đang Tiến Hành">Đang Tiến Hành</option>
           <option value="Hoàn Thành">Hoàn Thành</option>
@@ -42,7 +44,8 @@
       </div>
       <div class="mb-6">
         <button type="submit"
-          class="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Tạo
+          class="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Cập
+          Nhật
           Dự Án</button>
       </div>
     </form>

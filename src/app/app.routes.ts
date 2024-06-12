@@ -9,6 +9,7 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { TeamsComponent } from './pages/teams/teams.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { UpdateProjectComponent } from './pages/update-project/update-project.component';
 
 export const routes: Routes = [
   {
@@ -29,6 +30,11 @@ export const routes: Routes = [
         path: 'create',
         component: CreateComponent,
         title: 'Tạo dự án',
+      },
+      {
+        path: 'updateproject/:id',
+        component: UpdateProjectComponent,
+        title: 'Cập nhập dự án',
       },
       {
         path: 'create-task',

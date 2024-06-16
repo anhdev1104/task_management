@@ -53,6 +53,7 @@ export class LoginComponent {
       (data: IAccount) => {
         // Lưu accessToken vào cookie
         this.cookieService.set('accessToken', data.accessToken);
+        this.cookieService.set('refreshToken', data.refreshToken);
 
         this.accountData = data;
         this.accounts.reset();

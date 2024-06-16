@@ -10,6 +10,8 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { TeamsComponent } from './pages/teams/teams.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UpdateProjectComponent } from './pages/update-project/update-project.component';
+import { TasksComponent } from './pages/tasks/tasks.component';
+import { UpdateTasksComponent } from './pages/update-tasks/update-tasks.component';
 
 export const routes: Routes = [
   {
@@ -50,6 +52,16 @@ export const routes: Routes = [
         path: 'profile/:id',
         component: ProfileComponent,
         title: 'Hồ sơ cá nhân',
+      },
+      {
+        path: 'tasks',
+        component: TasksComponent,
+        title: 'Quản lí tasks',
+      },
+      {
+        path: 'updatetasks/:id',
+        component: UpdateTasksComponent,
+        title: 'Cập nhập tasks',
       },
     ],
   },

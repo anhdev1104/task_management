@@ -28,10 +28,8 @@ export class ProjectComponent implements OnInit {
   }
 
   handleDeleteProject(id: string) {
-    const isDeleteTeam = confirm(
-      'Bạn có chắc muốn xóa team này khỏi dự án không?'
-    );
-    if (!isDeleteTeam) return;
+    const isDeleteProject = confirm('Bạn có chắc muốn xóa dự án này không?');
+    if (!isDeleteProject) return;
 
     this.projectService.deleteProject(id).subscribe((data) => {
       this.projectData = this.projectData.filter(

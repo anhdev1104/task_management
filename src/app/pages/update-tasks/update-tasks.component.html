@@ -1,7 +1,7 @@
 <p-toast></p-toast>
 <div class="max-w-4xl mx-auto bg-white p-10 mt-10 shadow-md rounded-lg">
-  <h1 class="text-3xl font-bold mb-6">Tạo Task</h1>
-  <form [formGroup]="tasks" (ngSubmit)="handleAddTask()">
+  <h1 class="text-3xl font-bold mb-6">Cập nhập Task</h1>
+  <form [formGroup]="tasksForm" (ngSubmit)="handleUpdateTask()">
     <div class="mb-4">
       <label class="block text-sm font-semibold mb-2" for="task-name">Tên Task:</label>
       <input class="w-full border rounded-lg px-3 py-2" type="text" formControlName="name" id="task-name"

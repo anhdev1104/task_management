@@ -3,9 +3,14 @@
     <a routerLink="/admin/dashboard" class="text-xl capitalize">Phần mềm quản lí dự án</a>
     <ul class="flex items-center gap-5">
       <li class="text-lg"><a routerLink="/admin/dashboard">Bảng điều khiển</a></li>
+      <li><a routerLink="/admin/teams" class="text-lg">Teams</a></li>
+      @if (profileData.role === 'admin') {
       <li class="text-lg"><a routerLink="/admin/project">Dự án</a></li>
-      <li><a routerLink="/admin/teams">Teams</a></li>
+      } @else {
+      <li class="text-lg"><a routerLink="/admin/tasks">Nhiệm vụ</a></li>
+      }
     </ul>
-    <app-search />
+    <!-- <app-search /> -->
+    <div class="cursor-pointer hover:underline" (click)="handleLogout()">Đăng xuất</div>
   </div>
 </header>

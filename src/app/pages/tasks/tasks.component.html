@@ -1,0 +1,76 @@
+<p-toast></p-toast>
+<div class="mt-10 mx-10 ">
+  <div class=" mx-auto bg-white p-6 rounded-lg shadow-md">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-2xl font-semibold text-gray-800">Quản lý Tasks</h2>
+      <a routerLink="/admin/create-task"
+        class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-all">Create
+        tasks</a>
+    </div>
+    <p class="text-gray-600 mb-4">Danh sách tất cả công việc trong dự án của công ty bao gồm tên công việc, mô tả, tên
+      dự án của công việc, mức độ ưu tiên, phân công, trạng thái tasks.
+    </p>
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-white border border-gray-200">
+        <thead>
+          <tr>
+            <th
+              class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              Tasks ID</th>
+            <th
+              class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              Tasks Name</th>
+            <th
+              class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              Description</th>
+            <th
+              class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              Dự án</th>
+            <th
+              class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              Mức độ ưu tiên</th>
+            <th
+              class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              Phân công</th>
+            <th
+              class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              Trạng thái</th>
+            <th
+              class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (task of tasksData; track $index) {
+          <tr>
+            <td class="px-6 py-4 border-b border-gray-200">{{$index + 1}}</td>
+            <td class="px-6 py-4 border-b border-gray-200">{{task.name}}</td>
+            <td class="px-6 py-4 border-b border-gray-200">
+              <textarea name="description"
+                class="description resize-none outline-none border border-gray-300 w-[250px] h-20"
+                disabled>{{task.description}}</textarea>
+            </td>
+            <td class="px-6 py-4 border-b border-gray-200">{{task.project.name}}</td>
+            <td class="px-6 py-4 border-b border-gray-200">{{task.level}}</td>
+            <td class="px-6 py-4 border-b border-gray-200">{{task.assignee.username}}</td>
+            <td class="px-6 py-4 border-b border-gray-200">{{task.status}}</td>
+            <td class="px-6 py-4 border-b border-gray-200 space-y-1">
+              <a routerLink="/admin/updatetasks/{{task._id}}"
+                class="w-10 h-10 bg-yellow-500 hover:bg-opacity-70 transition-all rounded-md text-white flex justify-center items-center"
+                title="Edit">
+                <i class="fa-regular fa-pen-to-square"></i>
+              </a>
+              <div
+                class="w-10 h-10 bg-red-500 hover:bg-opacity-70 transition-all rounded-md text-white flex justify-center cursor-pointer items-center"
+                (click)="handleDeleteTask(task._id)">
+                <i class="fa-solid fa-trash-can"></i>
+              </div>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -36,4 +36,8 @@ export class AccountService {
   profileAccount(): Observable<IAccount> {
     return this.http.get<IAccount>('profile');
   }
+
+  logoutAccount(): Observable<any> {
+    return this.http.get<any>('logout');
+  }
 }
